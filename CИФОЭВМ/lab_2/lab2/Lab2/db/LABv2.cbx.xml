@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="LABv2">
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|FrequencyDivider:inst6|MNGenerator:inst3|lpm_add_sub0:inst7|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_seh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|FrequencyDivider:inst6|lpm_constant3:inst5|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_uf6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_bki.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|RefSignalsGenerator:inst11|lpm_constant4:inst4|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_9k6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|FrequencyDivider:inst6|MNGenerator:inst3|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_bgc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|MNGenerator:inst|lpm_add_sub1:inst9|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_gih.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|RefSignalsGenerator:inst11|BUSMUX:inst3|lpm_mux:$00000" CBX_FILE_NAME="mux_qhc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|FrequencyDivider:inst6|MNGenerator:inst3|lpm_add_sub1:inst|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_gih.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_bki.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|MNGenerator:inst|lpm_add_sub0:inst7|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_seh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|MNGenerator:inst|lpm_compare0:inst4|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_7gi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|RefSignalsGenerator:inst11|lpm_constant5:inst5|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_1r6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|FrequencyDivider:inst6|MNGenerator:inst3|lpm_add_sub1:inst9|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_gih.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|MNGenerator:inst|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_bgc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|RefSignalsGenerator:inst11|lpm_counter1:inst|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_7eh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|RefSignalsGenerator:inst11|lpm_decode0:inst1|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_r1f.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|FrequencyDivider:inst6|MNGenerator:inst3|lpm_compare0:inst4|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_7gi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|FrequencyDivider:inst6|lpm_constant0:inst4|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_bh6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LABv2|MNGenerator:inst|lpm_add_sub1:inst|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_gih.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

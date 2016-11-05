@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="memory">
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|control:inst|lpm_decode0:inst37|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_ltf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_compare3:inst23|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i8j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_counter2:inst12|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_s3i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_counter4:inst10|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_e9j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|control:inst|lpm_counter2:inst36|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_s3i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|control:inst|lpm_counter2:inst20|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_s3i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|control:inst|lpm_counter4:inst|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_e9j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_compare1:inst18|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i8j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_compare9:inst9|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i8j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|control:inst|lpm_decode0:inst23|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_ltf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|control:inst|lpm_mux0:inst3|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_unc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_compare8:inst7|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i8j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|LPM_RAM_IO:inst2|altram:sram|altsyncram:ram_block" CBX_FILE_NAME="altsyncram_5n91.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_compare0:inst13|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i8j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_compare2:inst19|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i8j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|memory:inst1|lpm_rom3:inst31|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_8551.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|main|reg_array:inst2|lpm_constant1:inst33|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_qf6.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

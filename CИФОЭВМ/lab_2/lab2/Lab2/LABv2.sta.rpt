@@ -1,0 +1,834 @@
+TimeQuest Timing Analyzer report for LABv2
+Thu Sep 22 21:51:25 2016
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Setup Times
+ 12. Hold Times
+ 13. Clock to Output Times
+ 14. Minimum Clock to Output Times
+ 15. Fast Model Setup Summary
+ 16. Fast Model Hold Summary
+ 17. Fast Model Recovery Summary
+ 18. Fast Model Removal Summary
+ 19. Fast Model Minimum Pulse Width Summary
+ 20. Setup Times
+ 21. Hold Times
+ 22. Clock to Output Times
+ 23. Minimum Clock to Output Times
+ 24. Multicorner Timing Analysis Summary
+ 25. Setup Times
+ 26. Hold Times
+ 27. Clock to Output Times
+ 28. Minimum Clock to Output Times
+ 29. Setup Transfers
+ 30. Hold Transfers
+ 31. Report TCCS
+ 32. Report RSKM
+ 33. Unconstrained Paths
+ 34. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                    ;
++--------------------+-------------------------------------------------+
+; Quartus II Version ; Version 9.1 Build 222 10/21/2009 SJ Web Edition ;
+; Revision Name      ; LABv2                                           ;
+; Device Family      ; Arria GX                                        ;
+; Device Name        ; EP1AGX20CF484C6                                 ;
+; Timing Models      ; Final                                           ;
+; Delay Model        ; Combined                                        ;
+; Rise/Fall Delays   ; Unavailable                                     ;
++--------------------+-------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------------------------------------------------------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Name                                                                                                                      ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                                                                                                             ;
++---------------------------------------------------------------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------------------------------------------------------------------------------------------------------+
+; CLK                                                                                                                             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLK }                                                                                                                             ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { FrequencyDivider:inst6|MNGenerator:inst3|inst5 }                                                                                  ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] } ;
+; MNGenerator:inst|inst5                                                                                                          ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { MNGenerator:inst|inst5 }                                                                                                          ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] }                         ;
++---------------------------------------------------------------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                                                       ;
++------------+-----------------+------------------------------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                                     ; Note                                                          ;
++------------+-----------------+------------------------------------------------+---------------------------------------------------------------+
+; 384.02 MHz ; 373.83 MHz      ; CLK                                            ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 389.86 MHz ; 389.86 MHz      ; MNGenerator:inst|inst5                         ;                                                               ;
+; 743.49 MHz ; 570.13 MHz      ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; limit due to high minimum pulse width violation (tch)         ;
++------------+-----------------+------------------------------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup Summary                                                                                                                                 ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                                                                           ; Slack  ; End Point TNS ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; CLK                                                                                                                             ; -1.604 ; -12.832       ;
+; MNGenerator:inst|inst5                                                                                                          ; -1.565 ; -12.520       ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; -0.345 ; -1.022        ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; 0.626  ; 0.000         ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; 0.801  ; 0.000         ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold Summary                                                                                                                                  ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                                                                           ; Slack  ; End Point TNS ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; CLK                                                                                                                             ; -2.198 ; -17.584       ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; -0.645 ; -0.645        ;
+; MNGenerator:inst|inst5                                                                                                          ; -0.623 ; -3.448        ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; -0.470 ; -0.470        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; 0.796  ; 0.000         ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width Summary                                                                                                                   ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                                                                           ; Slack  ; End Point TNS ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; CLK                                                                                                                             ; -1.675 ; -7.707        ;
+; MNGenerator:inst|inst5                                                                                                          ; -0.377 ; -6.032        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; -0.377 ; -3.016        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; -0.377 ; -0.754        ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; -0.377 ; -0.754        ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; M[*]      ; CLK        ; 10.039 ; 10.039 ; Rise       ; CLK             ;
+;  M[0]     ; CLK        ; 9.015  ; 9.015  ; Rise       ; CLK             ;
+;  M[1]     ; CLK        ; 10.039 ; 10.039 ; Rise       ; CLK             ;
+;  M[2]     ; CLK        ; 9.857  ; 9.857  ; Rise       ; CLK             ;
+;  M[3]     ; CLK        ; 9.750  ; 9.750  ; Rise       ; CLK             ;
+;  M[4]     ; CLK        ; 9.804  ; 9.804  ; Rise       ; CLK             ;
+;  M[5]     ; CLK        ; 8.482  ; 8.482  ; Rise       ; CLK             ;
+;  M[6]     ; CLK        ; 9.005  ; 9.005  ; Rise       ; CLK             ;
+;  M[7]     ; CLK        ; 7.840  ; 7.840  ; Rise       ; CLK             ;
+; N[*]      ; CLK        ; 12.296 ; 12.296 ; Rise       ; CLK             ;
+;  N[0]     ; CLK        ; 11.451 ; 11.451 ; Rise       ; CLK             ;
+;  N[1]     ; CLK        ; 11.768 ; 11.768 ; Rise       ; CLK             ;
+;  N[2]     ; CLK        ; 11.837 ; 11.837 ; Rise       ; CLK             ;
+;  N[3]     ; CLK        ; 12.296 ; 12.296 ; Rise       ; CLK             ;
+;  N[4]     ; CLK        ; 11.600 ; 11.600 ; Rise       ; CLK             ;
+;  N[5]     ; CLK        ; 10.172 ; 10.172 ; Rise       ; CLK             ;
+;  N[6]     ; CLK        ; 9.193  ; 9.193  ; Rise       ; CLK             ;
+;  N[7]     ; CLK        ; 9.717  ; 9.717  ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; M[*]      ; CLK        ; -6.677 ; -6.677 ; Rise       ; CLK             ;
+;  M[0]     ; CLK        ; -6.677 ; -6.677 ; Rise       ; CLK             ;
+;  M[1]     ; CLK        ; -7.662 ; -7.662 ; Rise       ; CLK             ;
+;  M[2]     ; CLK        ; -7.979 ; -7.979 ; Rise       ; CLK             ;
+;  M[3]     ; CLK        ; -8.080 ; -8.080 ; Rise       ; CLK             ;
+;  M[4]     ; CLK        ; -8.183 ; -8.183 ; Rise       ; CLK             ;
+;  M[5]     ; CLK        ; -7.681 ; -7.681 ; Rise       ; CLK             ;
+;  M[6]     ; CLK        ; -8.253 ; -8.253 ; Rise       ; CLK             ;
+;  M[7]     ; CLK        ; -7.496 ; -7.496 ; Rise       ; CLK             ;
+; N[*]      ; CLK        ; -6.934 ; -6.934 ; Rise       ; CLK             ;
+;  N[0]     ; CLK        ; -6.934 ; -6.934 ; Rise       ; CLK             ;
+;  N[1]     ; CLK        ; -8.077 ; -8.077 ; Rise       ; CLK             ;
+;  N[2]     ; CLK        ; -8.170 ; -8.170 ; Rise       ; CLK             ;
+;  N[3]     ; CLK        ; -8.469 ; -8.469 ; Rise       ; CLK             ;
+;  N[4]     ; CLK        ; -7.648 ; -7.648 ; Rise       ; CLK             ;
+;  N[5]     ; CLK        ; -7.484 ; -7.484 ; Rise       ; CLK             ;
+;  N[6]     ; CLK        ; -8.109 ; -8.109 ; Rise       ; CLK             ;
+;  N[7]     ; CLK        ; -7.575 ; -7.575 ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                            ;
++-----------------+------------------------------------------------+--------+--------+------------+------------------------------------------------+
+; Data Port       ; Clock Port                                     ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                ;
++-----------------+------------------------------------------------+--------+--------+------------+------------------------------------------------+
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.810  ;        ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 13.877 ; 13.877 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.978 ; 11.978 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 13.877 ; 13.877 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.958 ; 11.958 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.751 ; 11.751 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 12.201 ; 12.201 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.486 ; 10.486 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.391 ; 10.391 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.014 ; 11.014 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.465 ; 11.465 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.744 ; 11.744 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.814 ; 10.814 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.060 ; 11.060 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.523  ; 9.523  ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.471 ; 10.471 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.871 ; 10.871 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.476 ; 10.476 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;        ; 5.810  ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.468  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.646  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.355  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.768  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.985  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.468  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.753  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.654  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.277  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.655  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.014  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.073  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.319  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 6.797  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.745  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.160  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.682  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_mn          ; MNGenerator:inst|inst5                         ; 6.013  ;        ; Rise       ; MNGenerator:inst|inst5                         ;
+; out_mn          ; MNGenerator:inst|inst5                         ;        ; 6.013  ; Fall       ; MNGenerator:inst|inst5                         ;
++-----------------+------------------------------------------------+--------+--------+------------+------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                                                   ;
++-----------------+------------------------------------------------+--------+-------+------------+------------------------------------------------+
+; Data Port       ; Clock Port                                     ; Rise   ; Fall  ; Clock Edge ; Clock Reference                                ;
++-----------------+------------------------------------------------+--------+-------+------------+------------------------------------------------+
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.810  ;       ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.075  ; 4.985 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.588 ; 5.646 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 13.187 ; 7.355 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.814 ; 5.768 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.397 ; 4.985 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.756 ; 9.468 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.043 ; 7.753 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.948  ; 7.654 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.573 ; 8.277 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.977 ; 8.655 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.254 ; 9.014 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.371 ; 8.073 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.619 ; 8.319 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.075  ; 6.797 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.025 ; 7.745 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.373 ; 8.160 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.980  ; 7.682 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;        ; 5.810 ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.985  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.646  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.355  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.768  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.985  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.468  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.753  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.654  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.277  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.655  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.014  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.073  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.319  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 6.797  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.745  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.160  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.682  ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_mn          ; MNGenerator:inst|inst5                         ; 6.013  ;       ; Rise       ; MNGenerator:inst|inst5                         ;
+; out_mn          ; MNGenerator:inst|inst5                         ;        ; 6.013 ; Fall       ; MNGenerator:inst|inst5                         ;
++-----------------+------------------------------------------------+--------+-------+------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup Summary                                                                                                                                ;
++---------------------------------------------------------------------------------------------------------------------------------+-------+---------------+
+; Clock                                                                                                                           ; Slack ; End Point TNS ;
++---------------------------------------------------------------------------------------------------------------------------------+-------+---------------+
+; CLK                                                                                                                             ; 0.000 ; 0.000         ;
+; MNGenerator:inst|inst5                                                                                                          ; 0.007 ; 0.000         ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; 0.413 ; 0.000         ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; 0.595 ; 0.000         ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; 0.598 ; 0.000         ;
++---------------------------------------------------------------------------------------------------------------------------------+-------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold Summary                                                                                                                                  ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                                                                           ; Slack  ; End Point TNS ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; CLK                                                                                                                             ; -1.003 ; -8.024        ;
+; MNGenerator:inst|inst5                                                                                                          ; -0.237 ; -1.212        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; -0.220 ; -0.220        ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; -0.217 ; -0.217        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; 0.378  ; 0.000         ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width Summary                                                                                                                   ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                                                                           ; Slack  ; End Point TNS ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+; CLK                                                                                                                             ; -1.000 ; -3.080        ;
+; MNGenerator:inst|inst5                                                                                                          ; -0.130 ; -2.080        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; -0.130 ; -1.040        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; -0.130 ; -0.260        ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; -0.130 ; -0.260        ;
++---------------------------------------------------------------------------------------------------------------------------------+--------+---------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; M[*]      ; CLK        ; 4.095 ; 4.095 ; Rise       ; CLK             ;
+;  M[0]     ; CLK        ; 3.693 ; 3.693 ; Rise       ; CLK             ;
+;  M[1]     ; CLK        ; 4.095 ; 4.095 ; Rise       ; CLK             ;
+;  M[2]     ; CLK        ; 4.003 ; 4.003 ; Rise       ; CLK             ;
+;  M[3]     ; CLK        ; 3.969 ; 3.969 ; Rise       ; CLK             ;
+;  M[4]     ; CLK        ; 3.986 ; 3.986 ; Rise       ; CLK             ;
+;  M[5]     ; CLK        ; 3.379 ; 3.379 ; Rise       ; CLK             ;
+;  M[6]     ; CLK        ; 3.519 ; 3.519 ; Rise       ; CLK             ;
+;  M[7]     ; CLK        ; 3.147 ; 3.147 ; Rise       ; CLK             ;
+; N[*]      ; CLK        ; 4.965 ; 4.965 ; Rise       ; CLK             ;
+;  N[0]     ; CLK        ; 4.519 ; 4.519 ; Rise       ; CLK             ;
+;  N[1]     ; CLK        ; 4.732 ; 4.732 ; Rise       ; CLK             ;
+;  N[2]     ; CLK        ; 4.728 ; 4.728 ; Rise       ; CLK             ;
+;  N[3]     ; CLK        ; 4.965 ; 4.965 ; Rise       ; CLK             ;
+;  N[4]     ; CLK        ; 4.708 ; 4.708 ; Rise       ; CLK             ;
+;  N[5]     ; CLK        ; 4.100 ; 4.100 ; Rise       ; CLK             ;
+;  N[6]     ; CLK        ; 3.581 ; 3.581 ; Rise       ; CLK             ;
+;  N[7]     ; CLK        ; 4.045 ; 4.045 ; Rise       ; CLK             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; M[*]      ; CLK        ; -2.751 ; -2.751 ; Rise       ; CLK             ;
+;  M[0]     ; CLK        ; -2.751 ; -2.751 ; Rise       ; CLK             ;
+;  M[1]     ; CLK        ; -3.130 ; -3.130 ; Rise       ; CLK             ;
+;  M[2]     ; CLK        ; -3.304 ; -3.304 ; Rise       ; CLK             ;
+;  M[3]     ; CLK        ; -3.315 ; -3.315 ; Rise       ; CLK             ;
+;  M[4]     ; CLK        ; -3.342 ; -3.342 ; Rise       ; CLK             ;
+;  M[5]     ; CLK        ; -3.151 ; -3.151 ; Rise       ; CLK             ;
+;  M[6]     ; CLK        ; -3.301 ; -3.301 ; Rise       ; CLK             ;
+;  M[7]     ; CLK        ; -3.025 ; -3.025 ; Rise       ; CLK             ;
+; N[*]      ; CLK        ; -2.760 ; -2.760 ; Rise       ; CLK             ;
+;  N[0]     ; CLK        ; -2.760 ; -2.760 ; Rise       ; CLK             ;
+;  N[1]     ; CLK        ; -3.227 ; -3.227 ; Rise       ; CLK             ;
+;  N[2]     ; CLK        ; -3.325 ; -3.325 ; Rise       ; CLK             ;
+;  N[3]     ; CLK        ; -3.490 ; -3.490 ; Rise       ; CLK             ;
+;  N[4]     ; CLK        ; -3.159 ; -3.159 ; Rise       ; CLK             ;
+;  N[5]     ; CLK        ; -3.100 ; -3.100 ; Rise       ; CLK             ;
+;  N[6]     ; CLK        ; -3.181 ; -3.181 ; Rise       ; CLK             ;
+;  N[7]     ; CLK        ; -3.076 ; -3.076 ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                          ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+; Data Port       ; Clock Port                                     ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.307 ;       ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.650 ; 5.650 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.892 ; 4.892 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.650 ; 5.650 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.978 ; 4.978 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.829 ; 4.829 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.977 ; 4.977 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.365 ; 4.365 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.331 ; 4.331 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.583 ; 4.583 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.875 ; 4.875 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.787 ; 4.787 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.513 ; 4.513 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.608 ; 4.608 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.041 ; 4.041 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.359 ; 4.359 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.526 ; 4.526 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.369 ; 4.369 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;       ; 2.307 ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.611 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.274 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.957 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.320 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.073 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.611 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.999 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.961 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.213 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.478 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.407 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.141 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.236 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.678 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.997 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.161 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.985 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_mn          ; MNGenerator:inst|inst5                         ; 2.391 ;       ; Rise       ; MNGenerator:inst|inst5                         ;
+; out_mn          ; MNGenerator:inst|inst5                         ;       ; 2.391 ; Fall       ; MNGenerator:inst|inst5                         ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                                                  ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+; Data Port       ; Clock Port                                     ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.307 ;       ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.887 ; 2.073 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.777 ; 2.274 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.504 ; 2.957 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.830 ; 2.320 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.723 ; 2.073 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.826 ; 3.611 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.215 ; 2.999 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.181 ; 2.961 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.434 ; 3.213 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.717 ; 3.478 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.629 ; 3.407 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.364 ; 3.141 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.459 ; 3.236 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.887 ; 2.678 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.206 ; 2.997 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.362 ; 3.161 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.206 ; 2.985 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;       ; 2.307 ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.073 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.274 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.957 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.320 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.073 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.611 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.999 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.961 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.213 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.478 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.407 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.141 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.236 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.678 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.997 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.161 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.985 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_mn          ; MNGenerator:inst|inst5                         ; 2.391 ;       ; Rise       ; MNGenerator:inst|inst5                         ;
+; out_mn          ; MNGenerator:inst|inst5                         ;       ; 2.391 ; Fall       ; MNGenerator:inst|inst5                         ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                                                                                                             ;
++----------------------------------------------------------------------------------------------------------------------------------+---------+---------+----------+---------+---------------------+
+; Clock                                                                                                                            ; Setup   ; Hold    ; Recovery ; Removal ; Minimum Pulse Width ;
++----------------------------------------------------------------------------------------------------------------------------------+---------+---------+----------+---------+---------------------+
+; Worst-case Slack                                                                                                                 ; -1.604  ; -2.198  ; N/A      ; N/A     ; -1.675              ;
+;  CLK                                                                                                                             ; -1.604  ; -2.198  ; N/A      ; N/A     ; -1.675              ;
+;  FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; -0.345  ; 0.378   ; N/A      ; N/A     ; -0.377              ;
+;  FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; 0.598   ; -0.645  ; N/A      ; N/A     ; -0.377              ;
+;  MNGenerator:inst|inst5                                                                                                          ; -1.565  ; -0.623  ; N/A      ; N/A     ; -0.377              ;
+;  MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; 0.595   ; -0.470  ; N/A      ; N/A     ; -0.377              ;
+; Design-wide TNS                                                                                                                  ; -26.374 ; -22.147 ; 0.0      ; 0.0     ; -18.263             ;
+;  CLK                                                                                                                             ; -12.832 ; -17.584 ; N/A      ; N/A     ; -7.707              ;
+;  FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; -1.022  ; 0.000   ; N/A      ; N/A     ; -3.016              ;
+;  FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; 0.000   ; -0.645  ; N/A      ; N/A     ; -0.754              ;
+;  MNGenerator:inst|inst5                                                                                                          ; -12.520 ; -3.448  ; N/A      ; N/A     ; -6.032              ;
+;  MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; 0.000   ; -0.470  ; N/A      ; N/A     ; -0.754              ;
++----------------------------------------------------------------------------------------------------------------------------------+---------+---------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; M[*]      ; CLK        ; 10.039 ; 10.039 ; Rise       ; CLK             ;
+;  M[0]     ; CLK        ; 9.015  ; 9.015  ; Rise       ; CLK             ;
+;  M[1]     ; CLK        ; 10.039 ; 10.039 ; Rise       ; CLK             ;
+;  M[2]     ; CLK        ; 9.857  ; 9.857  ; Rise       ; CLK             ;
+;  M[3]     ; CLK        ; 9.750  ; 9.750  ; Rise       ; CLK             ;
+;  M[4]     ; CLK        ; 9.804  ; 9.804  ; Rise       ; CLK             ;
+;  M[5]     ; CLK        ; 8.482  ; 8.482  ; Rise       ; CLK             ;
+;  M[6]     ; CLK        ; 9.005  ; 9.005  ; Rise       ; CLK             ;
+;  M[7]     ; CLK        ; 7.840  ; 7.840  ; Rise       ; CLK             ;
+; N[*]      ; CLK        ; 12.296 ; 12.296 ; Rise       ; CLK             ;
+;  N[0]     ; CLK        ; 11.451 ; 11.451 ; Rise       ; CLK             ;
+;  N[1]     ; CLK        ; 11.768 ; 11.768 ; Rise       ; CLK             ;
+;  N[2]     ; CLK        ; 11.837 ; 11.837 ; Rise       ; CLK             ;
+;  N[3]     ; CLK        ; 12.296 ; 12.296 ; Rise       ; CLK             ;
+;  N[4]     ; CLK        ; 11.600 ; 11.600 ; Rise       ; CLK             ;
+;  N[5]     ; CLK        ; 10.172 ; 10.172 ; Rise       ; CLK             ;
+;  N[6]     ; CLK        ; 9.193  ; 9.193  ; Rise       ; CLK             ;
+;  N[7]     ; CLK        ; 9.717  ; 9.717  ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; M[*]      ; CLK        ; -2.751 ; -2.751 ; Rise       ; CLK             ;
+;  M[0]     ; CLK        ; -2.751 ; -2.751 ; Rise       ; CLK             ;
+;  M[1]     ; CLK        ; -3.130 ; -3.130 ; Rise       ; CLK             ;
+;  M[2]     ; CLK        ; -3.304 ; -3.304 ; Rise       ; CLK             ;
+;  M[3]     ; CLK        ; -3.315 ; -3.315 ; Rise       ; CLK             ;
+;  M[4]     ; CLK        ; -3.342 ; -3.342 ; Rise       ; CLK             ;
+;  M[5]     ; CLK        ; -3.151 ; -3.151 ; Rise       ; CLK             ;
+;  M[6]     ; CLK        ; -3.301 ; -3.301 ; Rise       ; CLK             ;
+;  M[7]     ; CLK        ; -3.025 ; -3.025 ; Rise       ; CLK             ;
+; N[*]      ; CLK        ; -2.760 ; -2.760 ; Rise       ; CLK             ;
+;  N[0]     ; CLK        ; -2.760 ; -2.760 ; Rise       ; CLK             ;
+;  N[1]     ; CLK        ; -3.227 ; -3.227 ; Rise       ; CLK             ;
+;  N[2]     ; CLK        ; -3.325 ; -3.325 ; Rise       ; CLK             ;
+;  N[3]     ; CLK        ; -3.490 ; -3.490 ; Rise       ; CLK             ;
+;  N[4]     ; CLK        ; -3.159 ; -3.159 ; Rise       ; CLK             ;
+;  N[5]     ; CLK        ; -3.100 ; -3.100 ; Rise       ; CLK             ;
+;  N[6]     ; CLK        ; -3.181 ; -3.181 ; Rise       ; CLK             ;
+;  N[7]     ; CLK        ; -3.076 ; -3.076 ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                            ;
++-----------------+------------------------------------------------+--------+--------+------------+------------------------------------------------+
+; Data Port       ; Clock Port                                     ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                ;
++-----------------+------------------------------------------------+--------+--------+------------+------------------------------------------------+
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.810  ;        ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 13.877 ; 13.877 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.978 ; 11.978 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 13.877 ; 13.877 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.958 ; 11.958 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.751 ; 11.751 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 12.201 ; 12.201 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.486 ; 10.486 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.391 ; 10.391 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.014 ; 11.014 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.465 ; 11.465 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.744 ; 11.744 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.814 ; 10.814 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 11.060 ; 11.060 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.523  ; 9.523  ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.471 ; 10.471 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.871 ; 10.871 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 10.476 ; 10.476 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;        ; 5.810  ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.468  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.646  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.355  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.768  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.985  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.468  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.753  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.654  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.277  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.655  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 9.014  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.073  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.319  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 6.797  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.745  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 8.160  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 7.682  ;        ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_mn          ; MNGenerator:inst|inst5                         ; 6.013  ;        ; Rise       ; MNGenerator:inst|inst5                         ;
+; out_mn          ; MNGenerator:inst|inst5                         ;        ; 6.013  ; Fall       ; MNGenerator:inst|inst5                         ;
++-----------------+------------------------------------------------+--------+--------+------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                                                  ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+; Data Port       ; Clock Port                                     ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.307 ;       ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.887 ; 2.073 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.777 ; 2.274 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 5.504 ; 2.957 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.830 ; 2.320 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.723 ; 2.073 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.826 ; 3.611 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.215 ; 2.999 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.181 ; 2.961 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.434 ; 3.213 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.717 ; 3.478 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.629 ; 3.407 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.364 ; 3.141 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.459 ; 3.236 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.887 ; 2.678 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.206 ; 2.997 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.362 ; 3.161 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 4.206 ; 2.985 ; Rise       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_div         ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;       ; 2.307 ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; refSignals[*]   ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.073 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[0]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.274 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[1]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.957 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[2]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.320 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[3]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.073 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[4]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.611 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[5]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.999 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[6]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.961 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[7]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.213 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[8]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.478 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[9]  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.407 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[10] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.141 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[11] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.236 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[12] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.678 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[13] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.997 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[14] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 3.161 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+;  refSignals[15] ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ; 2.985 ;       ; Fall       ; FrequencyDivider:inst6|MNGenerator:inst3|inst5 ;
+; out_mn          ; MNGenerator:inst|inst5                         ; 2.391 ;       ; Rise       ; MNGenerator:inst|inst5                         ;
+; out_mn          ; MNGenerator:inst|inst5                         ;       ; 2.391 ; Fall       ; MNGenerator:inst|inst5                         ;
++-----------------+------------------------------------------------+-------+-------+------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                                                                                                                                                                                                               ;
++---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                                                                                                      ; To Clock                                                                                                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; CLK                                                                                                                             ; CLK                                                                                                                             ; 84       ; 0        ; 0        ; 0        ;
+; MNGenerator:inst|inst5                                                                                                          ; CLK                                                                                                                             ; 8        ; 8        ; 0        ; 0        ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; CLK                                                                                                                             ; 16       ; 16       ; 0        ; 0        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; 10       ; 0        ; 0        ; 0        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; 0        ; 0        ; 1        ; 1        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; MNGenerator:inst|inst5                                                                                                          ; 2        ; 2        ; 0        ; 0        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; MNGenerator:inst|inst5                                                                                                          ; 16       ; 16       ; 0        ; 0        ;
+; MNGenerator:inst|inst5                                                                                                          ; MNGenerator:inst|inst5                                                                                                          ; 84       ; 0        ; 0        ; 0        ;
+; MNGenerator:inst|inst5                                                                                                          ; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; 0        ; 0        ; 1        ; 1        ;
++---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                                                                                                                                                                                                                ;
++---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                                                                                                      ; To Clock                                                                                                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; CLK                                                                                                                             ; CLK                                                                                                                             ; 84       ; 0        ; 0        ; 0        ;
+; MNGenerator:inst|inst5                                                                                                          ; CLK                                                                                                                             ; 8        ; 8        ; 0        ; 0        ;
+; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; CLK                                                                                                                             ; 16       ; 16       ; 0        ; 0        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; 10       ; 0        ; 0        ; 0        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; 0        ; 0        ; 1        ; 1        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|inst5                                                                                  ; MNGenerator:inst|inst5                                                                                                          ; 2        ; 2        ; 0        ; 0        ;
+; FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] ; MNGenerator:inst|inst5                                                                                                          ; 16       ; 16       ; 0        ; 0        ;
+; MNGenerator:inst|inst5                                                                                                          ; MNGenerator:inst|inst5                                                                                                          ; 84       ; 0        ; 0        ; 0        ;
+; MNGenerator:inst|inst5                                                                                                          ; MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]                         ; 0        ; 0        ; 1        ; 1        ;
++---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 16    ; 16   ;
+; Unconstrained Input Port Paths  ; 72    ; 72   ;
+; Unconstrained Output Ports      ; 18    ; 18   ;
+; Unconstrained Output Port Paths ; 82    ; 82   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Thu Sep 22 21:51:20 2016
+Info: Command: quartus_sta LABv2 -c LABv2
+Info: qsta_default_script.tcl version: #2
+Critical Warning: Synopsys Design Constraints File file not found: 'LABv2.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name FrequencyDivider:inst6|MNGenerator:inst3|inst5 FrequencyDivider:inst6|MNGenerator:inst3|inst5
+    Info: create_clock -period 1.000 -name FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]
+    Info: create_clock -period 1.000 -name MNGenerator:inst|inst5 MNGenerator:inst|inst5
+    Info: create_clock -period 1.000 -name MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]
+    Info: create_clock -period 1.000 -name CLK CLK
+Info: Analyzing Slow Model
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -1.604
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.604       -12.832 CLK 
+    Info:    -1.565       -12.520 MNGenerator:inst|inst5 
+    Info:    -0.345        -1.022 FrequencyDivider:inst6|MNGenerator:inst3|inst5 
+    Info:     0.626         0.000 MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+    Info:     0.801         0.000 FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+Info: Worst-case hold slack is -2.198
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -2.198       -17.584 CLK 
+    Info:    -0.645        -0.645 FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+    Info:    -0.623        -3.448 MNGenerator:inst|inst5 
+    Info:    -0.470        -0.470 MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+    Info:     0.796         0.000 FrequencyDivider:inst6|MNGenerator:inst3|inst5 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -1.675
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.675        -7.707 CLK 
+    Info:    -0.377        -6.032 MNGenerator:inst|inst5 
+    Info:    -0.377        -3.016 FrequencyDivider:inst6|MNGenerator:inst3|inst5 
+    Info:    -0.377        -0.754 FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+    Info:    -0.377        -0.754 MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info: Started post-fitting delay annotation
+Warning: Found 18 output pins without output pin load capacitance assignment
+    Info: Pin "out_div" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "out_mn" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[15]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[14]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[13]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[12]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[11]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[10]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "refSignals[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+Info: Delay annotation completed successfully
+Info: Worst-case setup slack is 0.000
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.000         0.000 CLK 
+    Info:     0.007         0.000 MNGenerator:inst|inst5 
+    Info:     0.413         0.000 FrequencyDivider:inst6|MNGenerator:inst3|inst5 
+    Info:     0.595         0.000 MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+    Info:     0.598         0.000 FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+Critical Warning: Timing requirements not met
+Info: Worst-case hold slack is -1.003
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.003        -8.024 CLK 
+    Info:    -0.237        -1.212 MNGenerator:inst|inst5 
+    Info:    -0.220        -0.220 FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+    Info:    -0.217        -0.217 MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+    Info:     0.378         0.000 FrequencyDivider:inst6|MNGenerator:inst3|inst5 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -1.000
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.000        -3.080 CLK 
+    Info:    -0.130        -2.080 MNGenerator:inst|inst5 
+    Info:    -0.130        -1.040 FrequencyDivider:inst6|MNGenerator:inst3|inst5 
+    Info:    -0.130        -0.260 FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+    Info:    -0.130        -0.260 MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0] 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 221 megabytes
+    Info: Processing ended: Thu Sep 22 21:51:24 2016
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
+
+

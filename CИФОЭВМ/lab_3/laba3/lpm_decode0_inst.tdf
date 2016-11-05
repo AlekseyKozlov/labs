@@ -1,0 +1,14 @@
+(
+	eq0_sig,
+	eq11_sig,
+	eq4_sig,
+	eq8_sig
+) = lpm_decode0	(
+	.data[] = data_sig[]
+)
+RETURNS (
+	.eq0,
+	.eq11,
+	.eq4,
+	.eq8
+);

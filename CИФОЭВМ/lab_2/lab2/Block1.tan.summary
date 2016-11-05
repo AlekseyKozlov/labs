@@ -1,0 +1,36 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Clock Setup: 'clk'
+Slack          : 37.713 ns
+Required Time  : 25.00 MHz ( period = 40.000 ns )
+Actual Time    : 437.25 MHz ( period = 2.287 ns )
+From           : counter3:inst5|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|safe_q[0]
+To             : counter3:inst5|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|safe_q[3]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clk'
+Slack          : -0.799 ns
+Required Time  : 25.00 MHz ( period = 40.000 ns )
+Actual Time    : N/A
+From           : counter3:inst5|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|safe_q[0]
+To             : counter3:inst5|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|safe_q[0]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 10
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 10
+
+--------------------------------------------------------------------------------------
+

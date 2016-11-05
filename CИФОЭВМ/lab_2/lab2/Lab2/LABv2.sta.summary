@@ -1,0 +1,125 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLK'
+Slack : -1.604
+TNS   : -12.832
+
+Type  : Slow Model Setup 'MNGenerator:inst|inst5'
+Slack : -1.565
+TNS   : -12.520
+
+Type  : Slow Model Setup 'FrequencyDivider:inst6|MNGenerator:inst3|inst5'
+Slack : -0.345
+TNS   : -1.022
+
+Type  : Slow Model Setup 'MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : 0.626
+TNS   : 0.000
+
+Type  : Slow Model Setup 'FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : 0.801
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CLK'
+Slack : -2.198
+TNS   : -17.584
+
+Type  : Slow Model Hold 'FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : -0.645
+TNS   : -0.645
+
+Type  : Slow Model Hold 'MNGenerator:inst|inst5'
+Slack : -0.623
+TNS   : -3.448
+
+Type  : Slow Model Hold 'MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : -0.470
+TNS   : -0.470
+
+Type  : Slow Model Hold 'FrequencyDivider:inst6|MNGenerator:inst3|inst5'
+Slack : 0.796
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLK'
+Slack : -1.675
+TNS   : -7.707
+
+Type  : Slow Model Minimum Pulse Width 'MNGenerator:inst|inst5'
+Slack : -0.377
+TNS   : -6.032
+
+Type  : Slow Model Minimum Pulse Width 'FrequencyDivider:inst6|MNGenerator:inst3|inst5'
+Slack : -0.377
+TNS   : -3.016
+
+Type  : Slow Model Minimum Pulse Width 'FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : -0.377
+TNS   : -0.754
+
+Type  : Slow Model Minimum Pulse Width 'MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : -0.377
+TNS   : -0.754
+
+Type  : Fast Model Setup 'CLK'
+Slack : 0.000
+TNS   : 0.000
+
+Type  : Fast Model Setup 'MNGenerator:inst|inst5'
+Slack : 0.007
+TNS   : 0.000
+
+Type  : Fast Model Setup 'FrequencyDivider:inst6|MNGenerator:inst3|inst5'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Fast Model Setup 'MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : 0.595
+TNS   : 0.000
+
+Type  : Fast Model Setup 'FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : 0.598
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLK'
+Slack : -1.003
+TNS   : -8.024
+
+Type  : Fast Model Hold 'MNGenerator:inst|inst5'
+Slack : -0.237
+TNS   : -1.212
+
+Type  : Fast Model Hold 'FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : -0.220
+TNS   : -0.220
+
+Type  : Fast Model Hold 'MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : -0.217
+TNS   : -0.217
+
+Type  : Fast Model Hold 'FrequencyDivider:inst6|MNGenerator:inst3|inst5'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLK'
+Slack : -1.000
+TNS   : -3.080
+
+Type  : Fast Model Minimum Pulse Width 'MNGenerator:inst|inst5'
+Slack : -0.130
+TNS   : -2.080
+
+Type  : Fast Model Minimum Pulse Width 'FrequencyDivider:inst6|MNGenerator:inst3|inst5'
+Slack : -0.130
+TNS   : -1.040
+
+Type  : Fast Model Minimum Pulse Width 'FrequencyDivider:inst6|MNGenerator:inst3|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : -0.130
+TNS   : -0.260
+
+Type  : Fast Model Minimum Pulse Width 'MNGenerator:inst|lpm_counter0:inst3|lpm_counter:lpm_counter_component|cntr_bki:auto_generated|safe_q[0]'
+Slack : -0.130
+TNS   : -0.260
+
+------------------------------------------------------------
